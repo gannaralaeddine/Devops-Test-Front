@@ -24,14 +24,14 @@ export class ProductServiceService {
     return this.httpClient.get(this.API_PRODUCT + "/retrieve-all-products");
   }
 
-  public DeleteProduct(id: any)
+  public deleteProduct(id: any)
   {
     return this.httpClient.delete(this.API_PRODUCT + "/delete-product/" + id);
   }
 
-  public updateProduct(id: any)
+  public updateProduct(product: any)
   {
-    return this.httpClient.put(this.API_PRODUCT + "/update-product/", id);
+    return this.httpClient.put(this.API_PRODUCT + "/update-product/", product);
   }
 
   public getProductById(id: any)

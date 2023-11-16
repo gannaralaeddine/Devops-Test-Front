@@ -16,6 +16,14 @@ export class AllProductsComponent
     this.retrieveAllProducts()
   }
 
+  productUpdate = {
+    productId: 0,
+    codeProduct: "",
+    labelProduct: "",
+    price: 0,
+    productImages: []
+  };
+
   public retrieveAllProducts()
   {
     this.productService.getAllProducts()
@@ -27,5 +35,31 @@ export class AllProductsComponent
         (error) => {
           console.log("error is: " + error);
         })
+  }
+
+  updateProduct(id: any)
+  {
+    console.log(id);
+
+    this.router.navigate(["/add-product", { idProduct: id }]);
+  }
+
+  deleteProduct(id: any)
+  {
+    alert(id);
+    this.productService.deleteProduct(id).subscribe(
+      (response) =>{
+        console.log(response);
+        this.retrieveAllProducts();
+      },
+      (error) =>{
+        console.log(error);
+      }
+    );
+  }
+
+  edit(student: any)
+  {
+    this.productUpdate = student;
   }
 }

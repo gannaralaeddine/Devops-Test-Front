@@ -15,6 +15,8 @@ export class AddProductComponent
 
   isAddOperation = true;
 
+
+
   product: Product = new Product();
 
   constructor(private productService: ProductServiceService,
@@ -24,9 +26,8 @@ export class AddProductComponent
 
   ngOnInit(): void
   {
+    //this.product = this.activatedRoute.snapshot.data["product"];
 
-    // this.product = this.activatedRoute.snapshot.data["product"];
-    //
     if ( this.product && this.product.idProduct != 0 )
     {
       this.isAddOperation = false;
