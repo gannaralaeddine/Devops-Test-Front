@@ -7,9 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class ProductServiceService {
+export class ProductServiceService
+{
 
-  API_PRODUCT = "http://localhost:8089/devops/product";
+  API_PRODUCT = "https://devopstest-devopstest.koyeb.app/devops/product";
 
   constructor(private httpClient: HttpClient) { }
 
