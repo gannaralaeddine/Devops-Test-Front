@@ -72,6 +72,7 @@ export class AddProductComponent
     this.productService.updateProduct(id, this.product).subscribe(
       (response) => {
         console.log(response)
+        this.router.navigate(["/allProducts"])
       },
       (error) =>{
         console.log(error)
