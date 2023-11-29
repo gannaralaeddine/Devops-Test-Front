@@ -41,7 +41,7 @@ export class AllProductsComponent
   {
     console.log(id);
 
-    this.router.navigate(["/add-product", { idProduct: id }]);
+    this.router.navigate(["/add-product", { productId: id }]);
   }
 
   deleteProduct(id: any)

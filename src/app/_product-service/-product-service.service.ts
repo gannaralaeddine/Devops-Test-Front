@@ -30,9 +30,9 @@ export class ProductServiceService
     return this.httpClient.delete(this.API_PRODUCT + "/delete-product/" + id);
   }
 
-  public updateProduct(product: any)
+  public updateProduct(id: any, product: any)
   {
-    return this.httpClient.put(this.API_PRODUCT + "/update-product/", product);
+    return this.httpClient.put(this.API_PRODUCT + "/update-product/"+ id, product);
   }
 
   public getProductById(id: any)

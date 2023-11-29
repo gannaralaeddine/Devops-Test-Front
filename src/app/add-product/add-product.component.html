@@ -7,12 +7,12 @@
     <form #productForm="ngForm" >
 
       <input type="text" [(ngModel)]="product.productCode" name="productCode" id="productCode" placeholder="Enter code Produit" class="form-control mb-3">
-      <input type="text" [(ngModel)]="product.productDescription"  name="productDescription" id="productDescription" placeholder="Enter libelle Produit" class="form-control mb-3">
+      <input type="text" [(ngModel)]="product.productDescription"  name="productDescription" id="productDescription" placeholder="Enter description Produit" class="form-control mb-3">
       <input type="text" [(ngModel)]="product.productPrice" name="productPrice" id="productPrice" placeholder="Enter prix Produit" class="form-control mb-3">
 
-      <h1>{{isAddOperation}}</h1>
-      <input type="submit" value="Save" (click)="addProduct()" class="btn btn-outline-primary form-control rounded-0" >
-      <input type="submit" value="Update" class="btn btn-outline-primary form-control rounded-0 " *ngIf="!isAddOperation">
+
+      <input type="submit" value="Save" (click)="addProduct()" class="btn btn-outline-primary form-control rounded-0" *ngIf="isAddOperation">
+      <input type="submit" value="Update" (click)="updateProduct(productId)" class="btn btn-outline-primary form-control rounded-0 " *ngIf="!isAddOperation">
     </form>
   </div>
 </div>
