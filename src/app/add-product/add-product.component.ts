@@ -43,7 +43,15 @@ export class AddProductComponent
   addProduct()
   {
     console.log(this.product)
-    this.productService.addProduct(this.product).subscribe();
+    this.productService.addProduct(this.product).subscribe(
+      (response) => {
+        console.log(response)
+        this.router.navigate(["/allProducts"])
+      },
+      (error) => {
+        console.log(error)
+      }
+    );
   }
 
   getProductById(id: any)
