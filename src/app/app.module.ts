@@ -13,7 +13,7 @@ import { MaterialModule } from "./material-module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import {FormsModule} from "@angular/forms";
     MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

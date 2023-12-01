@@ -1,9 +1,8 @@
 <div class="container mt-5">
-  <div class="card text-center" style="padding: 20px;">
+  <div class="card text-center" style="padding: 20px; margin: 20px">
 
     <div *ngIf="isAddOperation"><h1> Add new product </h1></div>
     <div *ngIf="!isAddOperation"><h1> Update Product </h1></div>
-
     <form #productForm="ngForm" >
 
       <input type="text" [(ngModel)]="product.productCode" name="productCode" id="productCode" placeholder="Enter code Produit" class="form-control mb-3">
@@ -11,8 +10,8 @@
       <input type="text" [(ngModel)]="product.productPrice" name="productPrice" id="productPrice" placeholder="Enter prix Produit" class="form-control mb-3">
 
 
-      <input type="submit" value="Save" (click)="addProduct()" class="btn btn-outline-primary form-control rounded-0" *ngIf="isAddOperation">
-      <input type="submit" value="Update" (click)="updateProduct(productId)" class="btn btn-outline-primary form-control rounded-0 " *ngIf="!isAddOperation">
+      <input type="submit" value="Save" (click)="addProduct()" class="btn btn-success" *ngIf="isAddOperation">
+      <input type="submit" value="Update" (click)="updateProduct(productId)" class="btn btn-warning" *ngIf="!isAddOperation">
     </form>
   </div>
 </div>

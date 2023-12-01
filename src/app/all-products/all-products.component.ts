@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {ProductServiceService} from "../_product-service/-product-service.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AddProductComponent} from "../add-product/add-product.component";
 
 @Component({
   selector: 'app-all-products',
@@ -11,7 +13,7 @@ export class AllProductsComponent
 {
   products : any;
 
-  constructor(private productService: ProductServiceService, private router: Router )
+  constructor(private productService: ProductServiceService, private router: Router, private dialogRef: MatDialog )
   {
     this.retrieveAllProducts()
   }
@@ -37,14 +39,7 @@ export class AllProductsComponent
         })
   }
 
-  updateProduct(id: any)
-  {
-    console.log(id);
-
-    this.router.navigate(["/add-product", { productId: id }]);
-  }
-
-  deleteProduct(id: any)
+  deleteProduct(id: number)
   {
     alert(id);
     this.productService.deleteProduct(id).subscribe(
@@ -58,8 +53,16 @@ export class AllProductsComponent
     );
   }
 
-  edit(student: any)
-  {
-    this.productUpdate = student;
+
+  openDialog(idProduct: number){
+    var popup = this.dialogRef.open(AddProductComponent, {
+      width: "30%",
+      enterAnimationDuration: "500ms",
+      exitAnimationDuration: "500ms",
+      data: { idProduct: idProduct }
+    })
+    popup.afterClosed().subscribe(item =>{
+      this.retrieveAllProducts()
+    })
   }
 }

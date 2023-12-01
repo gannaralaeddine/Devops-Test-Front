@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 export class ProductServiceService
 {
 
-  API_PRODUCT = "https://devopstest-devopstest.koyeb.app/devops/product";
+  // API_PRODUCT = "https://devopstest-devopstest.koyeb.app/devops/product";
+  API_PRODUCT = "http://localhost:8089/devops/product";
 
   constructor(private httpClient: HttpClient) { }
 
