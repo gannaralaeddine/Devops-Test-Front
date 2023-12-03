@@ -1,0 +1,48 @@
+<div>
+    <h1 mat-dialog-title>Add Stock Form</h1>
+</div>
+
+<form [formGroup]="stockForm">
+    <div class="libelle-stock-form-field">
+        <!--  Libellé Stock  -->
+        <mat-form-field >
+            <mat-label>Libellé Stock</mat-label>
+            <input matInput type="text" [(ngModel)]="valueLibelleStock" formControlName="libelleStock">
+            <button *ngIf="valueLibelleStock" matSuffix mat-icon-button aria-label="Clear" (click)="valueLibelleStock=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="quantite-form-field">
+        <!--  Quantité  -->
+        <mat-form-field >
+            <mat-label>Quntité</mat-label>
+            <input matInput type="number" [(ngModel)]="valueQuantite" formControlName="quantite">
+            <button *ngIf="valueQuantite" matSuffix mat-icon-button aria-label="Clear" (click)="valueQuantite=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>            
+
+    <div class="quantite-form-field">
+        <!--  Quantité Minimale  -->
+        <mat-form-field >
+            <mat-label>Quntité Minimale</mat-label>
+            <input matInput type="number" [(ngModel)]="valueQuantiteMin" formControlName="quantiteMin">
+            <button *ngIf="valueQuantiteMin" matSuffix mat-icon-button aria-label="Clear" (click)="valueQuantiteMin=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div >            
+
+
+    <div mat-dialog-actions class="divSubmit">
+        <span >
+            <button mat-button mat-dialog-close type="reset">Cancel</button>
+            <button mat-button mat-dialog-close cdkFocusInitial id="ok" (click)="addStock()">Save</button>
+        </span>
+
+    </div>
+
+</form>

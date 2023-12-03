@@ -1,0 +1,31 @@
+.example-button-row 
+{
+    margin-top: 15px;
+    margin-right: 3%;
+}
+
+.addStock
+{
+    float: right;
+    margin-right: 20px;
+}
+
+.main-body
+{
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1248px;
+}
+
+.mat-mdc-form-field 
+{
+    font-size: 14px;
+    width: 85%;
+    margin-left: 4.3%;
+}
+
+td
+{
+    width: 25%;
+    text-align: center;
+}
