@@ -3,7 +3,7 @@
 
     <div *ngIf="isAddOperation"><h1> Add new product </h1></div>
     <div *ngIf="!isAddOperation"><h1> Update Product </h1></div>
-    <form #productForm="ngForm" >
+    <form  >
 
       <input type="text" [(ngModel)]="product.productCode" name="productCode" id="productCode" placeholder="Enter code Produit" class="form-control mb-3">
       <input type="text" [(ngModel)]="product.productDescription"  name="productDescription" id="productDescription" placeholder="Enter description Produit" class="form-control mb-3">

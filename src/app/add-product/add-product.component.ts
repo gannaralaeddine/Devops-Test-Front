@@ -87,4 +87,17 @@ export class AddProductComponent
     )
   }
 
+  updateProductt(id: number )
+  {
+    this.productService.updateProduct(id, this.product).subscribe(
+      response => {
+        console.log(response)
+        this.ref.close()
+      },
+      error =>{
+        console.log(error)
+      }
+    )
+  }
+
 }
