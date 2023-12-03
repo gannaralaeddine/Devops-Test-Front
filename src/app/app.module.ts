@@ -19,12 +19,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MaterialModule } from "./material-module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { StockComponentComponent } from './stock/stock.component';
-import { AddStockComponent } from './add-stock/add-stock.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -45,18 +40,7 @@ import { MatSortModule } from '@angular/material/sort';
     MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
-    MatIconModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatGridListModule,
-    MatListModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

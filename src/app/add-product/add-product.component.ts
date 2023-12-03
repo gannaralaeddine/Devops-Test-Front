@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { ProductServiceService } from "../_product-service/-product-service.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "../product/product.model";
 import { OnInit } from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-product',
@@ -15,20 +16,25 @@ export class AddProductComponent
 {
 
   isAddOperation = true;
-  productId: string|null = ""
+ // productId: string|null = ""
 
 
   product: Product = new Product();
-
+  productId: number
+  // @ts-ignore
   constructor(private productService: ProductServiceService,
               private router: Router,
-              private activatedRoute: ActivatedRoute)
-  {  }
+              private activatedRoute: ActivatedRoute,
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private ref: MatDialogRef<AddProductComponent>)
+  {
+    this.productId = data.idProduct
+  }
 
   ngOnInit(): void
   {
     // Retrieve productId from the URL
-    this.productId = this.activatedRoute.snapshot.paramMap.get("productId");
+   // this.productId = this.activatedRoute.snapshot.paramMap.get("productId");
     // this.product = this.activatedRoute.snapshot.data["product"];
 
 
@@ -46,7 +52,8 @@ export class AddProductComponent
     this.productService.addProduct(this.product).subscribe(
       (response) => {
         console.log(response)
-        this.router.navigate(["/allProducts"])
+
+        this.ref.close()
       },
       (error) => {
         console.log(error)
@@ -54,7 +61,7 @@ export class AddProductComponent
     );
   }
 
-  getProductById(id: any)
+  getProductById(id: number)
   {
     this.productService.getProductById(id).subscribe(
       (response) => {
@@ -67,12 +74,12 @@ export class AddProductComponent
     )
   }
 
-  updateProduct(id: any )
+  updateProduct(id: number )
   {
     this.productService.updateProduct(id, this.product).subscribe(
       (response) => {
         console.log(response)
-        this.router.navigate(["/allProducts"])
+        this.ref.close()
       },
       (error) =>{
         console.log(error)
