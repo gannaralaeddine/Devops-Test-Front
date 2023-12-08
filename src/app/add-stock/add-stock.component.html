@@ -7,18 +7,18 @@
         <!--  Libellé Stock  -->
         <mat-form-field >
             <mat-label>Libellé Stock</mat-label>
-            <input matInput type="text" [(ngModel)]="valueLibelleStock" formControlName="libelleStock">
+            <input matInput type="text" formControlName="libelleStock"> <!-- [(ngModel)]="valueLibelleStock" -->
             <button *ngIf="valueLibelleStock" matSuffix mat-icon-button aria-label="Clear" (click)="valueLibelleStock=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
     </div>
 
-    <div class="quantite-form-field">
+    <div class="quantite-form-field" >
         <!--  Quantité  -->
-        <mat-form-field >
+        <mat-form-field>
             <mat-label>Quntité</mat-label>
-            <input matInput type="number" [(ngModel)]="valueQuantite" formControlName="quantite">
+            <input matInput type="number" formControlName="quantite"> <!-- [(ngModel)]="valueQuantite" -->
             <button *ngIf="valueQuantite" matSuffix mat-icon-button aria-label="Clear" (click)="valueQuantite=''">
                 <mat-icon>close</mat-icon>
             </button>
@@ -29,7 +29,7 @@
         <!--  Quantité Minimale  -->
         <mat-form-field >
             <mat-label>Quntité Minimale</mat-label>
-            <input matInput type="number" [(ngModel)]="valueQuantiteMin" formControlName="quantiteMin">
+            <input matInput type="number" formControlName="quantiteMin"> <!-- [(ngModel)]="valueQuantiteMin" -->
             <button *ngIf="valueQuantiteMin" matSuffix mat-icon-button aria-label="Clear" (click)="valueQuantiteMin=''">
                 <mat-icon>close</mat-icon>
             </button>
@@ -40,7 +40,7 @@
     <div mat-dialog-actions class="divSubmit">
         <span >
             <button mat-button mat-dialog-close type="reset">Cancel</button>
-            <button mat-button mat-dialog-close cdkFocusInitial id="ok" (click)="addStock()">Save</button>
+            <button mat-button mat-dialog-close cdkFocusInitial id="ok" (click)="addOrUpdateStock()">{{data? 'Update' : 'Save'}}</button>
         </span>
 
     </div>

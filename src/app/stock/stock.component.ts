@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStockComponent } from '../add-stock/add-stock.component';
 import { StockService } from '../stock-service/stock.service';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
@@ -13,7 +13,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class StockComponentComponent implements OnInit 
 {
-  displayedColumns: string[] = ['libelleStock', 'quantite', 'quantiteMin'];
+  displayedColumns: string[] = ['libelleStock', 'quantite', 'quantiteMin', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -37,27 +37,12 @@ export class StockComponentComponent implements OnInit
     }
   }
 
-  /*openAddStockForm()
-  {
-    var addStockDialog = this.dialog.open(AddStockComponent)
-    addStockDialog.disableClose = true
-    addStockDialog.afterClosed().subscribe({
-      next:() => {
-          this.getAllStocks()
-          console.log('ala')
-      }
-    })
-  }*/
-
   openAddStockForm()
   {
     var addStockDialog = this.dialog.open(AddStockComponent)
     addStockDialog.disableClose = true
-    addStockDialog.afterClosed().subscribe(val => { 
-      /*window.location = window.location
+    addStockDialog.afterClosed().subscribe(()=>{ 
       this.getAllStocks()
-      this.det.detectChanges()*/
-      console.log('ala')
     })
   }
 
@@ -70,6 +55,25 @@ export class StockComponentComponent implements OnInit
         this.dataSource.paginator = this.paginator
       },
       error: (err) => console.error(err)
+    })
+  }
+
+  deleteStock(id: number)
+  {
+    this.stockService.deleteStock(id).subscribe({
+      next: () => this.getAllStocks(),
+      error: (err) => console.error(`delete stock error is ${err}`)
+    })
+  }
+
+  openUpdateStockForm(data: any)
+  {
+    var updateDialog = this.dialog.open(AddStockComponent,{
+      data
+    })
+    updateDialog.disableClose = true
+    updateDialog.afterClosed().subscribe(()=>{ 
+      this.getAllStocks()
     })
   }
 }
